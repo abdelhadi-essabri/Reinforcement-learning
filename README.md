@@ -1,64 +1,63 @@
 
-# Projet : Apprentissage par Renforcement avec Q-learning et SARSA
+# Project: Reinforcement Learning with Q-learning and SARSA
 
-Ce projet implémente des algorithmes d'apprentissage par renforcement pour résoudre un problème de navigation sur une grille. Deux méthodes d'apprentissage, **Q-learning** et **SARSA**, sont explorées pour entraîner un agent à trouver le chemin optimal dans un environnement pouvant inclure des pièges et des récompenses différentes.
+This project implements reinforcement learning algorithms to solve a grid-based navigation problem. Two learning methods, **Q-learning** and **SARSA**, are explored to train an agent to find the optimal path in an environment with potential traps and varying rewards.
 
-## Structure des Fichiers
+## File Structure
 
-- **`qlearning.ipynb`** : Notebook contenant l'implémentation de l'algorithme Q-learning. Cet algorithme utilise une approche de mise à jour de valeur hors-politique pour apprendre la politique optimale.
-- **`SARSA.ipynb`** : Notebook contenant l'implémentation de l'algorithme SARSA, une approche d'apprentissage par renforcement en politique. SARSA met à jour les valeurs d'état-action en suivant la politique actuelle de l'agent.
-- **`utils.py`** : Fichier contenant les fonctions utilitaires pour la gestion de la grille, des états, des récompenses et de la politique. Il inclut également des fonctions de visualisation pour les fonctions de valeurs, les transitions et les politiques optimales.
+- **`qlearning.ipynb`**: Notebook containing the Q-learning algorithm implementation, which uses an off-policy value update approach to learn the optimal policy.
+- **`SARSA.ipynb`**: Notebook containing the SARSA algorithm, an on-policy reinforcement learning approach. SARSA updates the state-action values following the agent's current policy.
+- **`utils.py`**: Utility functions for grid management, states, rewards, and policy visualization. This includes functions for visualizing value functions, transitions, and optimal policies.
 
-## Fonctionnalités Principales
+## Key Features
 
-### 1. Génération des Grilles et des Transitions
-   - `dict_transition` : Génère les transitions possibles pour chaque état en fonction des dimensions de la grille et des pièges.
-   - `dict_rewards` : Génère les récompenses associées à chaque position sur la grille, y compris les pénalités pour les pièges.
+### 1. Grid and Transition Generation
+   - `dict_transition`: Generates possible transitions for each state based on grid dimensions and traps.
+   - `dict_rewards`: Generates rewards associated with each position on the grid, including penalties for traps.
 
 ### 2. Q-learning (`qlearning.ipynb`)
-   - Initialisation des états et actions.
-   - Choix d'action via la méthode epsilon-greedy.
-   - Mise à jour de la fonction Q en suivant la formule Q-learning.
-   - Affichage des résultats et visualisation de la politique optimale sur la grille.
+   - State and action initialization.
+   - Action selection using the epsilon-greedy method.
+   - Q-function update according to the Q-learning formula.
+   - Displays results and visualizes the optimal policy on the grid.
 
 ### 3. SARSA (`SARSA.ipynb`)
-   - Mise en œuvre de l'algorithme SARSA pour les mises à jour d'état-action en suivant la politique actuelle.
-   - Sélection d'actions en fonction d'une politique epsilon-greedy.
-   - Visualisation de la convergence de la fonction de valeur pour chaque état.
+   - Implementation of the SARSA algorithm to update state-action pairs while following the agent's current policy.
+   - Action selection using an epsilon-greedy policy.
+   - Visualization of value function convergence for each state.
 
-### 4. Fonctions Utilitaires et Visualisation (`utils.py`)
-   - **Grille et Transitions** : Génération des grilles, gestion des pièges, et configuration des récompenses.
-   - **Fonctions de Valeur** : Initialisation des fonctions de valeur et mise à jour pour chaque état.
-   - **Choix d'Actions** : Fonctions pour sélectionner des actions en fonction de la politique.
-   - **Visualisation** : Affichage des fonctions de valeur sous forme de heatmaps, visualisation des transitions et des politiques optimales.
+### 4. Utility Functions and Visualization (`utils.py`)
+   - **Grid and Transitions**: Grid generation, trap management, and reward settings.
+   - **Value Functions**: Value function initialization and update for each state.
+   - **Action Selection**: Functions to select actions based on the policy.
+   - **Visualization**: Displays value functions as heatmaps, visualizes transitions, and optimal policies.
 
-## Installation et Pré-requis
+### 5. Solution Graphs
+The project provides graphical representations to compare the policies and results of each algorithm:
+   - **Value Function Heatmap**: A heatmap to visualize the value function for each state.
+   - **Optimal Path**: Visualizes the path taken by the agent following the optimal policy.
+   - **Transition and Reward Maps**: Detailed grid maps for transitions and rewards, showcasing the influence of traps and terminal states.
+
+## Installation and Requirements
 
 1. **Python** 3.x
-2. Librairies nécessaires (installables via pip) :
+2. Required libraries (installable via pip):
    ```bash
    pip install numpy matplotlib seaborn
    ```
 
-## Utilisation
+## Usage
 
-1. **Configurer la Grille et les Paramètres**
-   - Définir les dimensions de la grille (`K`), les positions de la case terminale (`T`) et les pièges si nécessaire.
+1. **Configure Grid and Parameters**
+   - Set grid dimensions (`K`), the terminal state position (`T`), and traps if necessary.
    
-2. **Exécuter Q-learning**
-   - Ouvrez `qlearning.ipynb` et exécutez chaque cellule pour lancer l'entraînement de l'agent.
-   
-3. **Exécuter SARSA**
-   - Ouvrez `SARSA.ipynb` et exécutez chaque cellule pour entraîner l'agent en utilisant l'algorithme SARSA.
+2. **Run Q-learning**
+   - Open `qlearning.ipynb` and execute each cell to start training the agent.
 
-## Résultats
+3. **Run SARSA**
+   - Open `SARSA.ipynb` and execute each cell to train the agent using the SARSA algorithm.
 
-Le projet génère des visualisations des fonctions de valeur pour chaque algorithme, des politiques optimales et des chemins suivis par l'agent. Ces résultats peuvent être utilisés pour comparer les performances de Q-learning et SARSA.
+## Results
 
-## Contribuer
+The project generates visualizations of the value functions for each algorithm, the optimal policies, and the paths taken by the agent. These results allow for a performance comparison between Q-learning and SARSA.
 
-Les contributions sont les bienvenues. Veuillez créer une *issue* ou soumettre une *pull request* pour des suggestions d'améliorations.
-
-## Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus d’informations.
